@@ -12,8 +12,12 @@ func main() {
 		render(w, "test.page.gohtml")
 	})
 
-	fmt.Println("Starting front end service on port 80")
-	err := http.ListenAndServe(":80", nil)
+	// Define host
+	host := ":8080"
+
+	// Serve app
+	fmt.Println("** Listening on host **", host)
+	err := http.ListenAndServe(host, nil)
 	if err != nil {
 		log.Panic(err)
 	}
